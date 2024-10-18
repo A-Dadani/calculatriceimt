@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import com.calculatriceimt.model.CalculatorModel;
+
 /**
  * JavaFX App
  */
@@ -31,8 +33,16 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         launch();
+    }*/
+
+    public static void main(String[] args)  throws Exception
+    {
+
+        CalculatorModel c = new CalculatorModel();
+        c.add();
+        System.out.println(c.GetAcc());
     }
 
 }
