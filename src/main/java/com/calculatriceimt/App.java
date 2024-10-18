@@ -41,8 +41,9 @@ public class App extends Application {
     {
 
         CalculatorModel c = new CalculatorModel();
-        c.add();
+        c.divide();
         System.out.println(c.GetAcc());
+        c.divide();
     }
 
 }
