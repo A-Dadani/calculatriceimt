@@ -4,8 +4,8 @@ import java.util.Stack;
 
 public class CalculatorModel implements CalculatorModelInterface {
 
-    private Stack<Float> pile = new Stack<Float>();
-    private Float accu = null;
+    private Stack<Double> pile = new Stack<Double>();
+    private Double accu = null;
 
     // TODO Constructeur? à mediter
     // TODO à mediter, config javaFX?
@@ -34,12 +34,12 @@ public class CalculatorModel implements CalculatorModelInterface {
     // TODO REMOVE TEMPORAIRE
     public CalculatorModel()
     {
-        pile.push(10f);
-        pile.push(0f);
-        pile.push(4f);
+        pile.push(10.0);
+        pile.push(0.0);
+        pile.push(4.0);
     }
 
-    public Float GetAcc()
+    public Double GetAcc()
     {
         return accu;
     }
@@ -98,8 +98,8 @@ public class CalculatorModel implements CalculatorModelInterface {
             // L'opération est possible
             // Puisqu'on doit diviser le nombre n-1 par n, on utilise
             // des variables temporaires
-            Float rhs = pile.pop();
-            Float lhs = pile.pop();
+            Double rhs = pile.pop();
+            Double lhs = pile.pop();
 
             // Traiter le cas de div par 0
             if (rhs == 0) throw new Exception("Division par 0 impossible!");
@@ -148,8 +148,8 @@ public class CalculatorModel implements CalculatorModelInterface {
         if (pile.size() < 2) throw new Exception("ERR");
 
         // On utilise une variable temporaire pour echanger les elements
-        Float tempNew = pile.pop();
-        Float tempOld = pile.pop();
+        Double tempNew = pile.pop();
+        Double tempOld = pile.pop();
         pile.push(tempNew);
         pile.push(tempOld);
     }
