@@ -20,14 +20,18 @@ public class CalculatorModel implements CalculatorModelInterface {
             if (pile.size() < 2) throw new Exception("ERR");
             
             // L'opération est possible
-            accu = pile.pop() + pile.pop();
+            Double resultat = pile.pop() + pile.pop();
+            pile.push(resultat);
+            accu = null;
         }
         else
         {
             // L'accumulateur n'est pas vide, et il faut utiliser son contenu avec le dernier élément sur la pile
             // TODO à mediter, err à preciser?
             if (pile.isEmpty()) throw new Exception("ERR");
-            accu += pile.pop();
+            Double resultat = accu + pile.pop();
+            pile.push(resultat);
+            accu = null;
         }
     }
 
@@ -56,14 +60,15 @@ public class CalculatorModel implements CalculatorModelInterface {
             if (pile.size() < 2) throw new Exception("ERR");
             
             // L'opération est possible
-            accu = -pile.pop() + pile.pop();
+            pile.push(-pile.pop() + pile.pop());
         }
         else
         {
             // L'accumulateur n'est pas vide, et il faut utiliser son contenu avec le dernier élément sur la pile
             // TODO à mediter, err à preciser?
             if (pile.isEmpty()) throw new Exception("ERR");
-            accu = pile.pop() - accu;
+            pile.push(pile.pop() - accu);
+            accu = null;
         }
     }
 
@@ -76,14 +81,15 @@ public class CalculatorModel implements CalculatorModelInterface {
             if (pile.size() < 2) throw new Exception("ERR");
             
             // L'opération est possible
-            accu = pile.pop() * pile.pop();
+            pile.push(pile.pop() * pile.pop());
         }
         else
         {
             // L'accumulateur n'est pas vide, et il faut utiliser son contenu avec le dernier élément sur la pile
             // TODO à mediter, err à preciser?
             if (pile.isEmpty()) throw new Exception("ERR");
-            accu *= pile.pop();
+            pile.push(accu * pile.pop()); 
+            accu = null;
         }
     }
 
@@ -103,7 +109,7 @@ public class CalculatorModel implements CalculatorModelInterface {
 
             // Traiter le cas de div par 0
             if (rhs == 0) throw new Exception("Division par 0 impossible!");
-            accu = lhs / rhs;
+            pile.push(lhs / rhs);
         }
         else
         {
@@ -113,7 +119,8 @@ public class CalculatorModel implements CalculatorModelInterface {
 
             // Traiter le cas de div par 0
             if (accu == 0) throw new Exception("Division par 0 impossible!");
-            accu = pile.pop() / accu;
+            pile.push(pile.pop() / accu);
+            accu = null;
         }
     }
 
