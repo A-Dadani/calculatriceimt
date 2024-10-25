@@ -1,15 +1,25 @@
 package com.calculatriceimt.model;
 
+import java.util.ArrayList;
 import java.util.Stack;
+import java.util.*;
+
+import com.calculatriceimt.controler.CalculatorControler;
 
 public class CalculatorModel implements CalculatorModelInterface {
 
     private Stack<Double> pile = new Stack<Double>();
     private Double accu = null;
+    private CalculatorControler listener = null; // Listener pour pouvoir "notifier" le controlleur
 
-    // TODO Constructeur? à mediter
-    // TODO à mediter, config javaFX?
     // TODO à mediter: faire une fonction pour eviter les copier coller
+
+    
+    public CalculatorModel(CalculatorControler listener)
+    {
+        // Initialiser le listener
+        this.listener = listener;
+    }
 
     @Override
     public void add() throws Exception {
@@ -20,35 +30,20 @@ public class CalculatorModel implements CalculatorModelInterface {
             if (pile.size() < 2) throw new Exception("ERR");
             
             // L'opération est possible
-            Double resultat = pile.pop() + pile.pop();
-            pile.push(resultat);
-            accu = null;
+            Double resultat = mPop() + mPop();
+            mPush(resultat);
+            mChangeAccu(null);
         }
         else
         {
             // L'accumulateur n'est pas vide, et il faut utiliser son contenu avec le dernier élément sur la pile
             // TODO à mediter, err à preciser?
             if (pile.isEmpty()) throw new Exception("ERR");
-            Double resultat = accu + pile.pop();
-            pile.push(resultat);
-            accu = null;
+            Double resultat = accu + mPop();
+            mPush(resultat);
+            mChangeAccu(null);
         }
     }
-
-    // TODO REMOVE TEMPORAIRE
-    public CalculatorModel()
-    {
-        pile.push(10.0);
-        pile.push(0.0);
-        pile.push(4.0);
-    }
-
-    public Double GetAcc()
-    {
-        return accu;
-    }
-    /////////////////////////////////////////
-
 
 
     @Override
@@ -60,15 +55,15 @@ public class CalculatorModel implements CalculatorModelInterface {
             if (pile.size() < 2) throw new Exception("ERR");
             
             // L'opération est possible
-            pile.push(-pile.pop() + pile.pop());
+            mPush(-mPop() + mPop());
         }
         else
         {
             // L'accumulateur n'est pas vide, et il faut utiliser son contenu avec le dernier élément sur la pile
             // TODO à mediter, err à preciser?
             if (pile.isEmpty()) throw new Exception("ERR");
-            pile.push(pile.pop() - accu);
-            accu = null;
+            mPush(mPop() - accu);
+            mChangeAccu(null);
         }
     }
 
@@ -81,15 +76,15 @@ public class CalculatorModel implements CalculatorModelInterface {
             if (pile.size() < 2) throw new Exception("ERR");
             
             // L'opération est possible
-            pile.push(pile.pop() * pile.pop());
+            mPush(mPop() * mPop());
         }
         else
         {
             // L'accumulateur n'est pas vide, et il faut utiliser son contenu avec le dernier élément sur la pile
             // TODO à mediter, err à preciser?
             if (pile.isEmpty()) throw new Exception("ERR");
-            pile.push(accu * pile.pop()); 
-            accu = null;
+            mPush(accu * mPop()); 
+            mChangeAccu(null);
         }
     }
 
@@ -104,12 +99,12 @@ public class CalculatorModel implements CalculatorModelInterface {
             // L'opération est possible
             // Puisqu'on doit diviser le nombre n-1 par n, on utilise
             // des variables temporaires
-            Double rhs = pile.pop();
-            Double lhs = pile.pop();
+            Double rhs = mPop();
+            Double lhs = mPop();
 
             // Traiter le cas de div par 0
             if (rhs == 0) throw new Exception("Division par 0 impossible!");
-            pile.push(lhs / rhs);
+            mPush(lhs / rhs);
         }
         else
         {
@@ -119,34 +114,34 @@ public class CalculatorModel implements CalculatorModelInterface {
 
             // Traiter le cas de div par 0
             if (accu == 0) throw new Exception("Division par 0 impossible!");
-            pile.push(pile.pop() / accu);
-            accu = null;
+            mPush(mPop() / accu);
+            mChangeAccu(null);
         }
     }
 
     @Override
     public void opposite() throws Exception {
         if (accu == null) throw new Exception("Accumulateur vide!");
-        accu = -accu;
+        mChangeAccu(-accu);
     }
 
     @Override
     public void push() throws Exception {
         if (accu == null) throw new Exception("Accumulateur vide!");
-        pile.push(accu);
-        accu = null;
+        mPush(accu);
+        mChangeAccu(null);
     }
 
     @Override
     public void pop() throws Exception {
         if (pile.isEmpty()) throw new Exception("Pile vide!");
-        accu = pile.pop();
+        mChangeAccu(mPop());
     }
 
     @Override
     public void drop() throws Exception {
         if (pile.isEmpty()) throw new Exception("Pile vide!");
-        pile.pop();
+        mPop();
     }
 
     @Override
@@ -155,20 +150,43 @@ public class CalculatorModel implements CalculatorModelInterface {
         if (pile.size() < 2) throw new Exception("ERR");
 
         // On utilise une variable temporaire pour echanger les elements
-        Double tempNew = pile.pop();
-        Double tempOld = pile.pop();
-        pile.push(tempNew);
-        pile.push(tempOld);
+        Double tempNew = mPop();
+        Double tempOld = mPop();
+        mPush(tempNew);
+        mPush(tempOld);
     }
 
     @Override
     public void clear() {
-        accu = null;
+        mChangeAccu(null);
     }
 
     public void Aclear() {
-        accu = null;
-        while (!pile.isEmpty()) pile.pop();
+        mChangeAccu(null);
+        while (!pile.isEmpty()) mPop();
     }
 
+    
+    // Des fontions push & pop pour être sur qu'on notifie le controller avant de modifier la pile
+    private void mPush(Double in)
+    {
+        pile.push(in);
+        List<Double> pileList = new ArrayList<Double>(pile);
+        listener.change(pileList);
+    }
+    
+    private Double mPop()
+    {
+        Double val = pile.pop();
+        List<Double> pileList = new ArrayList<Double>(pile);
+        listener.change(pileList);
+        return val;
+    }
+
+    // Notifier le controller après tout changement de la valeur d'accu
+    private void mChangeAccu(Double accu)
+    {
+        this.accu = accu;
+        listener.change(accu);
+    }
 }
