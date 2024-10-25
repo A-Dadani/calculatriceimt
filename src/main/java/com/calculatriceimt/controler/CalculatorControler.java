@@ -2,14 +2,17 @@ package com.calculatriceimt.controler;
 
 import java.util.List;
 
+import com.calculatriceimt.View.CalculatorGUI;
 import com.calculatriceimt.model.CalculatorModel;
 
 public class CalculatorControler implements CalculatorControlerInterface {
     CalculatorModel model;
+    CalculatorGUI view;
 
-    CalculatorControler(CalculatorModel model)
+    public CalculatorControler(CalculatorModel model, CalculatorGUI view)
     {
         this.model = model;
+        this.view = view;
     }
 
     @Override

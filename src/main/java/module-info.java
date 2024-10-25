@@ -4,4 +4,5 @@ module com.calculatriceimt {
 
     opens com.calculatriceimt to javafx.fxml;
     exports com.calculatriceimt;
+    exports com.calculatriceimt.View to javafx.graphics;
 }

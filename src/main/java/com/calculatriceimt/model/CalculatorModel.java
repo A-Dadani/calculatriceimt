@@ -15,7 +15,7 @@ public class CalculatorModel implements CalculatorModelInterface {
     // TODO à mediter: faire une fonction pour eviter les copier coller
 
     
-    public CalculatorModel(CalculatorControler listener)
+    public void addListener(CalculatorControler listener)
     {
         // Initialiser le listener
         this.listener = listener;
