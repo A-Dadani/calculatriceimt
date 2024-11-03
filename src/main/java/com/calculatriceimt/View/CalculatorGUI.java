@@ -17,10 +17,11 @@ import java.io.IOException;
 public class CalculatorGUI extends Application implements CalculatorGUIInterface {
 
     private static Scene scene;
+    
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("CalculatriceGUI"), 500, 912);
         stage.setScene(scene);
         stage.show();
     }
