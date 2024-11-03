@@ -5,6 +5,7 @@ import java.util.List;
 import com.calculatriceimt.View.CalculatorGUI;
 import com.calculatriceimt.model.CalculatorModel;
 
+
 public class CalculatorControler implements CalculatorControlerInterface {
     CalculatorModel model;
     CalculatorGUI view;

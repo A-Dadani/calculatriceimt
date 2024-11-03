@@ -9,6 +9,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+
+
 import java.io.IOException;
 
 /**
@@ -38,6 +43,14 @@ public class CalculatorGUI extends Application implements CalculatorGUIInterface
     @Override
     public void affiche() {
         launch();
+    }
+
+    @FXML
+    public void appuieBoutton(ActionEvent event)
+    {
+        Button button = (Button) event.getSource(); // Pour avoir le boutton qui a declancher l'evenement
+        String value = button.getText();
+        System.out.println(value);
     }
 
     @Override

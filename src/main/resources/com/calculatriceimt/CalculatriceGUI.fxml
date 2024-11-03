@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="912.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="912.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.calculatriceimt.View.CalculatorGUI">
    <children>
       <Pane layoutX="7.0" prefHeight="265.0" prefWidth="486.0" style="-fx-background-color: d6d6d6; -fx-background-radius: 0 0 15 15;">
          <children>
@@ -83,102 +83,102 @@
           <RowConstraints minHeight="100.0" percentHeight="20.0" prefHeight="102.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #00bcd7;" text="AC" textFill="WHITE">
+            <Button onAction="#appuieBoutton" mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #00bcd7;" text="AC" textFill="WHITE">
                <font>
                   <Font name="Product Sans Bold" size="33.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #b3f5ff;" text="🡙" GridPane.columnIndex="1">
+            <Button onAction="#appuieBoutton" mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #b3f5ff;" text="🡙" GridPane.columnIndex="1">
                <font>
                   <Font name="Product Sans Bold" size="50.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #b3f5ff;" text="+/-" GridPane.columnIndex="2">
+            <Button onAction="#appuieBoutton" mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #b3f5ff;" text="+/-" GridPane.columnIndex="2">
                <font>
                   <Font name="Product Sans Bold" size="33.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #b3f5ff;" text="➗" GridPane.columnIndex="3">
+            <Button onAction="#appuieBoutton" mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #b3f5ff;" text="➗" GridPane.columnIndex="3">
                <font>
                   <Font name="Product Sans Bold" size="28.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #b3f5ff;" text="×" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Button onAction="#appuieBoutton" mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #b3f5ff;" text="×" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font name="Product Sans Bold" size="41.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #b3f5ff;" text="-" GridPane.columnIndex="3" GridPane.rowIndex="2">
+            <Button onAction="#appuieBoutton" mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #b3f5ff;" text="-" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <font>
                   <Font name="Product Sans Bold" size="42.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #b3f5ff;" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3">
+            <Button onAction="#appuieBoutton" mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #b3f5ff;" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <font>
                   <Font name="Product Sans" size="48.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #00bcd7;" text="🡑" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="4">
+            <Button onAction="#appuieBoutton" mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #00bcd7;" text="🡑" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <font>
                   <Font name="Product Sans Bold" size="50.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="0" textFill="#4b4b4b" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Button onAction="#appuieBoutton" mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="0" textFill="#4b4b4b" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font name="Product Sans Bold" size="50.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="," textFill="#4b4b4b" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <Button onAction="#appuieBoutton" mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="," textFill="#4b4b4b" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <font>
                   <Font name="Product Sans Bold" size="50.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="🠨" textFill="#4b4b4b" GridPane.rowIndex="4">
+            <Button onAction="#appuieBoutton" mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="🠨" textFill="#4b4b4b" GridPane.rowIndex="4">
                <font>
                   <Font name="Product Sans Bold" size="40.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="3" textFill="#4b4b4b" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Button onAction="#appuieBoutton" mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="3" textFill="#4b4b4b" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <font>
                   <Font name="Product Sans Bold" size="50.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="2" textFill="#4b4b4b" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Button onAction="#appuieBoutton" mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="2" textFill="#4b4b4b" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font name="Product Sans Bold" size="50.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="1" textFill="#4b4b4b" GridPane.rowIndex="3">
+            <Button onAction="#appuieBoutton" mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="1" textFill="#4b4b4b" GridPane.rowIndex="3">
                <font>
                   <Font name="Product Sans Bold" size="50.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="6" textFill="#4b4b4b" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Button onAction="#appuieBoutton" mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="6" textFill="#4b4b4b" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font name="Product Sans Bold" size="50.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="5" textFill="#4b4b4b" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button onAction="#appuieBoutton" mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="5" textFill="#4b4b4b" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="Product Sans Bold" size="50.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="4" textFill="#4b4b4b" GridPane.rowIndex="2">
+            <Button onAction="#appuieBoutton" mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="4" textFill="#4b4b4b" GridPane.rowIndex="2">
                <font>
                   <Font name="Product Sans Bold" size="50.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="9" textFill="#4b4b4b" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button onAction="#appuieBoutton" mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="9" textFill="#4b4b4b" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font name="Product Sans Bold" size="50.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="8" textFill="#4b4b4b" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button onAction="#appuieBoutton" mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="8" textFill="#4b4b4b" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="Product Sans Bold" size="50.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="7" textFill="#4b4b4b" GridPane.rowIndex="1">
+            <Button onAction="#appuieBoutton" mnemonicParsing="false" prefHeight="145.0" prefWidth="162.0" style="-fx-background-radius: 100; -fx-background-color: #ececec;" text="7" textFill="#4b4b4b" GridPane.rowIndex="1">
                <font>
                   <Font name="Product Sans Bold" size="50.0" />
                </font>
