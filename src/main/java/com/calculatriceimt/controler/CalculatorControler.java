@@ -41,6 +41,10 @@ public class CalculatorControler implements CalculatorControlerInterface {
         switch (input)
         {
             case "AC":
+                model.Aclear();
+                break;
+            case "C":
+                model.clear();
                 break;
             case "🡑":
             {

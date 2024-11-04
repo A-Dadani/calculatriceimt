@@ -26,8 +26,7 @@ public class CalculatorModel implements CalculatorModelInterface {
         if (accu == null)
         {
             // Si l'accumulateur est vide, on utilise les 2 derniers éléments dans la pile
-            // TODO à mediter, err à preciser?
-            if (pile.size() < 2) throw new Exception("ERREUR!");
+            if (pile.size() < 2) throw new Exception("Pile trop petite!");
             
             // L'opération est possible
             Double resultat = mPop() + mPop();
@@ -37,8 +36,7 @@ public class CalculatorModel implements CalculatorModelInterface {
         else
         {
             // L'accumulateur n'est pas vide, et il faut utiliser son contenu avec le dernier élément sur la pile
-            // TODO à mediter, err à preciser?
-            if (pile.isEmpty()) throw new Exception("ERREUR!");
+            if (pile.isEmpty()) throw new Exception("Pile trop petite!");
             Double resultat = Double.parseDouble(accu) + mPop();
             mPush(resultat);
             SetAccu(null);
@@ -51,8 +49,7 @@ public class CalculatorModel implements CalculatorModelInterface {
         if (accu == null)
         {
             // Si l'accumulateur est vide, on utilise les 2 derniers éléments dans la pile
-            // TODO à mediter, err à preciser?
-            if (pile.size() < 2) throw new Exception("ERREUR!");
+            if (pile.size() < 2) throw new Exception("Pile trop petite!");
             
             // L'opération est possible
             mPush(-mPop() + mPop());
@@ -60,8 +57,7 @@ public class CalculatorModel implements CalculatorModelInterface {
         else
         {
             // L'accumulateur n'est pas vide, et il faut utiliser son contenu avec le dernier élément sur la pile
-            // TODO à mediter, err à preciser?
-            if (pile.isEmpty()) throw new Exception("ERREUR!");
+            if (pile.isEmpty()) throw new Exception("Pile trop petite!");
             mPush(mPop() - Double.parseDouble(accu));
             SetAccu(null);
         }
@@ -72,8 +68,7 @@ public class CalculatorModel implements CalculatorModelInterface {
         if (accu == null)
         {
             // Si l'accumulateur est vide, on utilise les 2 derniers éléments dans la pile
-            // TODO à mediter, err à preciser?
-            if (pile.size() < 2) throw new Exception("ERREUR!");
+            if (pile.size() < 2) throw new Exception("Pile trop petite!");
             
             // L'opération est possible
             mPush(mPop() * mPop());
@@ -81,8 +76,7 @@ public class CalculatorModel implements CalculatorModelInterface {
         else
         {
             // L'accumulateur n'est pas vide, et il faut utiliser son contenu avec le dernier élément sur la pile
-            // TODO à mediter, err à preciser?
-            if (pile.isEmpty()) throw new Exception("ERREUR!");
+            if (pile.isEmpty()) throw new Exception("Pile trop petite!");
             mPush(Double.parseDouble(accu) * mPop()); 
             SetAccu(null);
         }
@@ -93,8 +87,7 @@ public class CalculatorModel implements CalculatorModelInterface {
         if (accu == null)
         {
             // Si l'accumulateur est vide, on utilise les 2 derniers éléments dans la pile
-            // TODO à mediter, err à preciser?
-            if (pile.size() < 2) throw new Exception("ERREUR!");
+            if (pile.size() < 2) throw new Exception("Pile trop petite!");
             
             // L'opération est possible
             // Puisqu'on doit diviser le nombre n-1 par n, on utilise
@@ -109,8 +102,7 @@ public class CalculatorModel implements CalculatorModelInterface {
         else
         {
             // L'accumulateur n'est pas vide, et il faut utiliser son contenu avec le dernier élément sur la pile
-            // TODO à mediter, err à preciser?
-            if (pile.isEmpty()) throw new Exception("ERREUR!");
+            if (pile.isEmpty()) throw new Exception("Pile trop petite!");
 
             // Traiter le cas de div par 0
             if (Double.parseDouble(accu) == 0.0) throw new Exception("Division par 0!");
@@ -148,7 +140,7 @@ public class CalculatorModel implements CalculatorModelInterface {
     @Override
     public void swap() throws Exception {
         // Si l'accumulateur est vide, on utilise les 2 derniers éléments dans la pile
-        if (pile.size() < 2) throw new Exception("Taille de pile petite!");
+        if (pile.size() < 2) throw new Exception("Pile trop petite!");
 
         // On utilise une variable temporaire pour echanger les elements
         Double tempNew = mPop();

@@ -40,6 +40,8 @@ public class CalculatorGUI extends Application implements CalculatorGUIInterface
     private Label stackLabel3;
     @FXML
     private Label stackLabel4;
+    @FXML
+    private Button CACButton;
     
 
     public CalculatorGUI()
@@ -81,8 +83,16 @@ public class CalculatorGUI extends Application implements CalculatorGUIInterface
 
     @Override
     public void change(String accu) {
-        if (accu == null) accuLabel.setText(""); // afficher un accumulateur vide comme "--"
-        accuLabel.setText(accu);
+        if (accu == null)
+        {
+            accuLabel.setText("");
+            CACButton.setText("AC");
+        }
+        else
+        {
+            accuLabel.setText(accu);
+            CACButton.setText("C");
+        }
     }
 
     @Override
