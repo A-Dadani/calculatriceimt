@@ -1,5 +1,6 @@
 package com.calculatriceimt.View;
 
+import java.util.Collections;
 import java.util.List;
 
 import com.calculatriceimt.controler.CalculatorControler;
@@ -87,7 +88,9 @@ public class CalculatorGUI extends Application implements CalculatorGUIInterface
 
     @Override
     public void change(List<String> stackData) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'change'");
+        stackLabel4.setText(stackData.size() > 0 ? stackData.get(stackData.size() - 1) : "");
+        stackLabel3.setText(stackData.size() > 1 ? stackData.get(stackData.size() - 2) : "");
+        stackLabel2.setText(stackData.size() > 2 ? stackData.get(stackData.size() - 3) : "");
+        stackLabel1.setText(stackData.size() > 3 ? stackData.get(stackData.size() - 4) : "");
     }
 }

@@ -1,6 +1,7 @@
 package com.calculatriceimt.controler;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.calculatriceimt.View.CalculatorGUI;
 import com.calculatriceimt.model.CalculatorModel;
@@ -26,8 +27,11 @@ public class CalculatorControler implements CalculatorControlerInterface {
     // Quand un changement provient du model
     @Override
     public void change(List<Double> stackData) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'change'");
+        // On change la liste des doubles en liste de chaines de caractère, en supprimant les 0 après la virgule
+        List<String> strings = stackData.stream()
+            .map(d -> d == d.intValue() ? String.format("%.0f", d) : d.toString())
+            .collect(Collectors.toList());
+        view.change(strings);
     }
 
     // Quand un changement provient de l'interface graphique
@@ -39,7 +43,14 @@ public class CalculatorControler implements CalculatorControlerInterface {
             case "AC":
                 break;
             case "🡑":
+            {
+                try {
+                    model.push();
+                } catch (Exception e) {
+                    view.change(e.getMessage());
+                }
                 break;
+            }
             case "+":
                 break;
             case "-":
@@ -58,7 +69,21 @@ public class CalculatorControler implements CalculatorControlerInterface {
             case "🡙":
                 break;
             case "🠨":
+            {
+                // Si accumulateur est déja vide ou si il n'y a qu'un seul chiffre (positif ou negatif)
+                if (model.GetAccu() == null 
+                    || model.GetAccu().length() == 1
+                    || (model.GetAccu().charAt(0) == '-') && model.GetAccu().length() == 2)
+                {
+                    model.SetAccu(null);
+                } 
+                else
+                {
+                    model.SetAccu(model.GetAccu().substring(0, model.GetAccu().length() - 1));
+                }
+
                 break;
+            }
             case ",":
             {
                 if (model.GetAccu() == null) model.SetAccu("0"); // Si l'accumulateur est null est que l'utilisateur appuie sur ',' on veut afficher '0,'
