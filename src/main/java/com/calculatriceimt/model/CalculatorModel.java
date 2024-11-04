@@ -1,20 +1,22 @@
 package com.calculatriceimt.model;
 
 import java.util.ArrayList;
-import java.util.Stack;
 import java.util.*;
 
 import com.calculatriceimt.controler.CalculatorControler;
 
 public class CalculatorModel implements CalculatorModelInterface {
-
     private Stack<Double> pile = new Stack<Double>();
-    private Double accu = null;
+    private String accu = null;
     private CalculatorControler listener = null; // Listener pour pouvoir "notifier" le controlleur
 
     // TODO à mediter: faire une fonction pour eviter les copier coller
 
-    
+    public String GetAccu()
+    {
+        return accu;
+    }
+
     public void addListener(CalculatorControler listener)
     {
         // Initialiser le listener
@@ -32,16 +34,16 @@ public class CalculatorModel implements CalculatorModelInterface {
             // L'opération est possible
             Double resultat = mPop() + mPop();
             mPush(resultat);
-            mChangeAccu(null);
+            SetAccu(null);
         }
         else
         {
             // L'accumulateur n'est pas vide, et il faut utiliser son contenu avec le dernier élément sur la pile
             // TODO à mediter, err à preciser?
             if (pile.isEmpty()) throw new Exception("ERR");
-            Double resultat = accu + mPop();
+            Double resultat = Double.parseDouble(accu) + mPop();
             mPush(resultat);
-            mChangeAccu(null);
+            SetAccu(null);
         }
     }
 
@@ -62,8 +64,8 @@ public class CalculatorModel implements CalculatorModelInterface {
             // L'accumulateur n'est pas vide, et il faut utiliser son contenu avec le dernier élément sur la pile
             // TODO à mediter, err à preciser?
             if (pile.isEmpty()) throw new Exception("ERR");
-            mPush(mPop() - accu);
-            mChangeAccu(null);
+            mPush(mPop() - Double.parseDouble(accu));
+            SetAccu(null);
         }
     }
 
@@ -83,8 +85,8 @@ public class CalculatorModel implements CalculatorModelInterface {
             // L'accumulateur n'est pas vide, et il faut utiliser son contenu avec le dernier élément sur la pile
             // TODO à mediter, err à preciser?
             if (pile.isEmpty()) throw new Exception("ERR");
-            mPush(accu * mPop()); 
-            mChangeAccu(null);
+            mPush(Double.parseDouble(accu) * mPop()); 
+            SetAccu(null);
         }
     }
 
@@ -113,29 +115,30 @@ public class CalculatorModel implements CalculatorModelInterface {
             if (pile.isEmpty()) throw new Exception("ERR");
 
             // Traiter le cas de div par 0
-            if (accu == 0) throw new Exception("Division par 0 impossible!");
-            mPush(mPop() / accu);
-            mChangeAccu(null);
+            if (Double.parseDouble(accu) == 0.0) throw new Exception("Division par 0 impossible!");
+            mPush(mPop() / Double.parseDouble(accu));
+            SetAccu(null);
         }
     }
 
     @Override
     public void opposite() throws Exception {
         if (accu == null) throw new Exception("Accumulateur vide!");
-        mChangeAccu(-accu);
+        Double tempAccu = -Double.parseDouble(accu);
+        SetAccu(tempAccu.toString());
     }
 
     @Override
     public void push() throws Exception {
         if (accu == null) throw new Exception("Accumulateur vide!");
-        mPush(accu);
-        mChangeAccu(null);
+        mPush(Double.parseDouble(accu));
+        SetAccu(null);
     }
 
     @Override
     public void pop() throws Exception {
         if (pile.isEmpty()) throw new Exception("Pile vide!");
-        mChangeAccu(mPop());
+        SetAccu(mPop().toString());
     }
 
     @Override
@@ -158,11 +161,11 @@ public class CalculatorModel implements CalculatorModelInterface {
 
     @Override
     public void clear() {
-        mChangeAccu(null);
+        SetAccu(null);
     }
 
     public void Aclear() {
-        mChangeAccu(null);
+        SetAccu(null);
         while (!pile.isEmpty()) mPop();
     }
 
@@ -184,7 +187,7 @@ public class CalculatorModel implements CalculatorModelInterface {
     }
 
     // Notifier le controller après tout changement de la valeur d'accu
-    private void mChangeAccu(Double accu)
+    public void SetAccu(String accu)
     {
         this.accu = accu;
         listener.change(accu);

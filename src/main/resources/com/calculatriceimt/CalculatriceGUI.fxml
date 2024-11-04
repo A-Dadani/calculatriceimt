@@ -19,7 +19,7 @@
             <Pane layoutY="196.0" prefHeight="2.0" prefWidth="486.0" style="-fx-background-color: #c1c1c1;" />
             <AnchorPane layoutX="8.0" layoutY="208.0" prefHeight="43.0" prefWidth="471.0">
                <children>
-                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" style="-fx-font-weight: bold;" text="0" textAlignment="RIGHT" textFill="#454545" textOverrun="CLIP" AnchorPane.rightAnchor="0.0">
+                  <Label fx:id="stackLabel4" alignment="CENTER_RIGHT" contentDisplay="RIGHT" style="-fx-font-weight: bold;" text="" textAlignment="RIGHT" textFill="#454545" textOverrun="CLIP" AnchorPane.rightAnchor="0.0">
                      <font>
                         <Font name="Product Sans Bold" size="35.0" />
                      </font>
@@ -28,7 +28,7 @@
             </AnchorPane>
             <AnchorPane layoutX="8.0" layoutY="142.0" prefHeight="43.0" prefWidth="471.0">
                <children>
-                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" style="-fx-font-weight: bold;" text="0" textAlignment="RIGHT" textFill="#454545" textOverrun="CLIP" AnchorPane.rightAnchor="0.0">
+                  <Label fx:id="stackLabel3" alignment="CENTER_RIGHT" contentDisplay="RIGHT" style="-fx-font-weight: bold;" text="" textAlignment="RIGHT" textFill="#454545" textOverrun="CLIP" AnchorPane.rightAnchor="0.0">
                      <font>
                         <Font name="Product Sans Bold" size="35.0" />
                      </font>
@@ -37,7 +37,7 @@
             </AnchorPane>
             <AnchorPane layoutX="8.0" layoutY="77.0" prefHeight="43.0" prefWidth="471.0">
                <children>
-                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" style="-fx-font-weight: bold;" text="0" textAlignment="RIGHT" textFill="#454545" textOverrun="CLIP" AnchorPane.rightAnchor="0.0">
+                  <Label fx:id="stackLabel2" alignment="CENTER_RIGHT" contentDisplay="RIGHT" style="-fx-font-weight: bold;" text="" textAlignment="RIGHT" textFill="#454545" textOverrun="CLIP" AnchorPane.rightAnchor="0.0">
                      <font>
                         <Font name="Product Sans Bold" size="35.0" />
                      </font>
@@ -46,7 +46,7 @@
             </AnchorPane>
             <AnchorPane layoutX="8.0" layoutY="12.0" prefHeight="43.0" prefWidth="471.0">
                <children>
-                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" style="-fx-font-weight: bold;" text="0" textAlignment="RIGHT" textFill="#454545" textOverrun="CLIP" AnchorPane.rightAnchor="0.0">
+                  <Label fx:id="stackLabel1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" style="-fx-font-weight: bold;" text="" textAlignment="RIGHT" textFill="#454545" textOverrun="CLIP" AnchorPane.rightAnchor="0.0">
                      <font>
                         <Font name="Product Sans Bold" size="35.0" />
                      </font>
@@ -59,7 +59,7 @@
          <children>
             <AnchorPane layoutX="8.0" layoutY="5.0" prefHeight="59.0" prefWidth="471.0">
                <children>
-                  <Label alignment="CENTER_RIGHT" style="-fx-font-weight: bold;" text="0" textAlignment="RIGHT" textFill="#454545" textOverrun="CLIP" AnchorPane.rightAnchor="0.0">
+                  <Label fx:id="accuLabel" alignment="CENTER_RIGHT" style="-fx-font-weight: bold;" text="" textAlignment="RIGHT" textFill="#454545" textOverrun="CLIP" AnchorPane.rightAnchor="0.0">
                      <font>
                         <Font name="Product Sans Bold" size="47.0" />
                      </font>

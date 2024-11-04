@@ -6,4 +6,6 @@ module com.calculatriceimt {
     opens com.calculatriceimt.View to javafx.fxml;
     exports com.calculatriceimt;
     exports com.calculatriceimt.View to javafx.graphics, javafx.fxml;
+    exports com.calculatriceimt.controler;
+    exports com.calculatriceimt.model;
 }
