@@ -52,21 +52,46 @@ public class CalculatorControler implements CalculatorControlerInterface {
                 break;
             }
             case "+":
+                try {
+                    model.add();
+                } catch (Exception e) {
+                    view.change(e.getMessage());
+                }
                 break;
             case "-":
+                try {
+                    model.substract();
+                } catch (Exception e) {
+                    view.change(e.getMessage());
+                }
                 break;
             case "×":
+                try {
+                    model.multiply();
+                } catch (Exception e) {
+                    view.change(e.getMessage());
+                }
                 break;
             case "➗":
+                try {
+                    model.divide();
+                } catch (Exception e) {
+                    view.change(e.getMessage());
+                }
                 break;
             case "+/-":
             {
                 try {
                     model.opposite();
-                } catch (Exception e) {} // Si accumulateur est vide ne rien faire
+                } catch (Exception e) {}  // Si accumulateur est vide ne rien faire
                 break;
             }
             case "🡙":
+                try {
+                    model.swap();
+                } catch (Exception e) {
+                    view.change(e.getMessage());
+                }
                 break;
             case "🠨":
             {

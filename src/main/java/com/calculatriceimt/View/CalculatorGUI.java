@@ -1,6 +1,5 @@
 package com.calculatriceimt.View;
 
-import java.util.Collections;
 import java.util.List;
 
 import com.calculatriceimt.controler.CalculatorControler;
