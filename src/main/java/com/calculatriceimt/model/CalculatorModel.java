@@ -1,6 +1,5 @@
 package com.calculatriceimt.model;
 
-import java.util.ArrayList;
 import java.util.*;
 
 import com.calculatriceimt.controler.CalculatorControler;
@@ -114,8 +113,8 @@ public class CalculatorModel implements CalculatorModelInterface {
     @Override
     public void opposite() throws Exception {
         if (accu == null) throw new Exception("Accumulateur vide!");
-        Double tempAccu = -Double.parseDouble(accu);
-        SetAccu(tempAccu.toString());
+        Double tempAccu = -Double.parseDouble(accu); // Transformer le string en double pour l'inverser
+        SetAccu(tempAccu == tempAccu.intValue() ? String.format("%.0f", tempAccu) : tempAccu.toString()); // S'il y a des 0 après la virgule, il faut les enlever
     }
 
     @Override
