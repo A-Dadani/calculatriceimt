@@ -113,6 +113,7 @@ public class CalculatorModel implements CalculatorModelInterface {
     @Override
     public void opposite() throws Exception {
         if (accu == null) throw new Exception("Accumulateur vide!");
+        if (Double.parseDouble(accu) == 0.0) return; // l'opposé de 0 est 0 
         Double tempAccu = -Double.parseDouble(accu); // Transformer le string en double pour l'inverser
         SetAccu(tempAccu == tempAccu.intValue() ? String.format("%.0f", tempAccu) : tempAccu.toString()); // S'il y a des 0 après la virgule, il faut les enlever
     }
