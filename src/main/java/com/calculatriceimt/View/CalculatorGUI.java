@@ -24,12 +24,14 @@ import java.io.IOException;
  */
 public class CalculatorGUI extends Application implements CalculatorGUIInterface {
 
+    // Declarer le model et le controleur (listener) associé à la view
     CalculatorModel model = null;
     CalculatorControler listener = null;
     
 
     private static Scene scene;
     
+    // Déclaration des elements graphiques (voir les IDs dans CalculatriceGUI.fxml)
     @FXML
     private Label accuLabel;
     @FXML
@@ -46,8 +48,10 @@ public class CalculatorGUI extends Application implements CalculatorGUIInterface
 
     public CalculatorGUI()
     {
+        // Initialiser le model et le controlleur
         model = new CalculatorModel();
         listener = new CalculatorControler(model, this);
+        // Ajouter le listener (le controler) au model pour qu'il puisse 'notifier' le controller lui aussi
         model.addListener(listener);
     }
 
@@ -77,18 +81,19 @@ public class CalculatorGUI extends Application implements CalculatorGUIInterface
     public void appuieBoutton(ActionEvent event)
     {
         Button button = (Button) event.getSource(); // Pour avoir le boutton qui a declancher l'evenement
-        String value = button.getText();
-        listener.changeFromUserInput(value);        
+        String value = button.getText(); // Lire le text du boutton
+        listener.changeFromUserInput(value); // Envoyer la notification au controller
     }
 
     @Override
     public void change(String accu) {
+        // Si l'accumulateur est nul, on n'affiche rien, et on chance le boutton Clear (C) pour devenir All Clear (AC)
         if (accu == null)
         {
             accuLabel.setText("");
             CACButton.setText("AC");
         }
-        else
+        else // Sinon on mets (C)
         {
             accuLabel.setText(accu);
             CACButton.setText("C");
@@ -97,9 +102,10 @@ public class CalculatorGUI extends Application implements CalculatorGUIInterface
 
     @Override
     public void change(List<String> stackData) {
-        stackLabel4.setText(stackData.size() > 0 ? stackData.get(stackData.size() - 1) : "");
-        stackLabel3.setText(stackData.size() > 1 ? stackData.get(stackData.size() - 2) : "");
-        stackLabel2.setText(stackData.size() > 2 ? stackData.get(stackData.size() - 3) : "");
+        // On s'assure que la taille de la pile est suffisante pour être affichée avant de l'afficher.
         stackLabel1.setText(stackData.size() > 3 ? stackData.get(stackData.size() - 4) : "");
+        stackLabel2.setText(stackData.size() > 2 ? stackData.get(stackData.size() - 3) : "");
+        stackLabel3.setText(stackData.size() > 1 ? stackData.get(stackData.size() - 2) : "");
+        stackLabel4.setText(stackData.size() > 0 ? stackData.get(stackData.size() - 1) : "");
     }
 }

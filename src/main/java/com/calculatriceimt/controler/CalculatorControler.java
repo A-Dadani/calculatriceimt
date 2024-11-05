@@ -13,6 +13,7 @@ public class CalculatorControler implements CalculatorControlerInterface {
 
     public CalculatorControler(CalculatorModel model, CalculatorGUI view)
     {
+        // On enregistre une reference au model et à la view pour que l'on puisse les 'notifier'
         this.model = model;
         this.view = view;
     }
@@ -38,6 +39,8 @@ public class CalculatorControler implements CalculatorControlerInterface {
     // L'argument input est necessairement soit une virgule soit un chiffre.
     public void changeFromUserInput(String input)
     {
+
+        // On traite le input de l'utilisateur
         switch (input)
         {
             case "AC":
